@@ -1,0 +1,15 @@
+natureparif-trait.style:
+  version: VERSION
+  css:
+    theme:
+      css/n-trait-style.css: {}
+
+natureparif-trait.script:
+  js:
+    js/trait-footer.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+    - core/jquery.ui.autocomplete
+  

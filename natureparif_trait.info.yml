@@ -1,0 +1,8 @@
+name: Base de traits
+description: This module allows to display the data of the Database traits by a multi-criterion form
+type: module
+package: Natureparif (traits)
+core: 8.x
+version: VERSION
+dependencies:
+  - node

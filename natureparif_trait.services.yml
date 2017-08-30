@@ -1,0 +1,9 @@
+services:
+  base_trait.storage:
+    class: Drupal\natureparif_trait\BaseTraitsStorage
+    arguments: ['@database']
+
+  base_trait.manager:
+    class: Drupal\natureparif_trait\BaseTraitsManager
+    arguments: ['@base_trait.storage']
+

@@ -1,0 +1,81 @@
+natureparif_trait.pageContent:
+  path: '/natureparif-trait'
+  defaults:
+    _controller: '\Drupal\natureparif_trait\Controller\BaseTraitsController::getContent'
+  requirements:
+    _permission: 'access content'
+
+natureparif_trait.autocomplete_familles:
+    path: '/natureparif-trait/{taxonomie}'
+    defaults:
+        _controller: '\Drupal\natureparif_trait\Controller\AutoCompletionController::autofamilles'
+        _format: json
+    requirements:
+        _permission: 'access content'
+
+natureparif_trait.autocomplete_especes:
+    path: '/natureparif-trait/{taxonomie}/{famille}'
+    defaults:
+        _controller: '\Drupal\natureparif_trait\Controller\AutoCompletionController::autoespeces'
+        _format: json
+    requirements:
+        _permission: 'access content'
+
+natureparif_trait.pageTraitsContent:
+  path: '/natureparif-trait/trait-results/{taxonomie}/{famille}/{espece}/{trait}/{modalite}/{source}'
+  defaults:
+    _controller: '\Drupal\natureparif_trait\Controller\BaseTraitsController::getTraits'
+  requirements:
+    _permission: 'access content'
+
+natureparif_trait.modal.reference:
+  path: '/natureparif-trait/modal/reference/{id}'
+  defaults:
+    _controller: '\Drupal\natureparif_trait\Controller\BaseTraitsController::getDetailReferenceById'
+  requirements:
+    _permission: 'access content'
+
+natureparif_trait.modal.trait:
+  path: '/natureparif-trait/modal/trait/{id}'
+  defaults:
+    _controller: '\Drupal\natureparif_trait\Controller\BaseTraitsController::getDetailTraitById'
+  requirements:
+    _permission: 'access content'
+
+natureparif_trait.modal.modalite:
+  path: '/natureparif-trait/modal/modalite/{id}'
+  defaults:
+    _controller: '\Drupal\natureparif_trait\Controller\BaseTraitsController::getDetailModaliteById'
+  requirements:
+    _permission: 'access content'
+
+natureparif_trait.export_excel:
+  path: '/natureparif-trait/export/{taxonomie}/{famille}/{espece}/{trait}/{modalite}/{source}'
+  defaults:
+    _controller: '\Drupal\natureparif_trait\Controller\PhpExcelController::ExportExcel'
+  requirements:
+    _permission: 'access content'
+
+natureparif_trait.select_Trait_Json:
+    path: '/natureparif-trait/{taxonomie}/{famille}/{espece}'
+    defaults:
+        _controller: '\Drupal\natureparif_trait\Controller\AutoCompletionController::selectTraitJson'
+        _format: json
+    requirements:
+        _permission: 'access content'
+
+natureparif_trait.select_Modalite_Json:
+    path: '/natureparif-trait/{taxonomie}/{famille}/{espece}/{trait}'
+    defaults:
+        _controller: '\Drupal\natureparif_trait\Controller\AutoCompletionController::selectModaliteJson'
+        _format: json
+    requirements:
+        _permission: 'access content'
+
+natureparif_trait.select_Source_Json:
+    path: '/natureparif-trait/{taxonomie}/{famille}/{espece}/{trait}/{modalite}'
+    defaults:
+        _controller: '\Drupal\natureparif_trait\Controller\AutoCompletionController::selectSourceJson'
+        _format: json
+    requirements:
+        _permission: 'access content'

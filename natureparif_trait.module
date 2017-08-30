@@ -1,0 +1,80 @@
+<?php
+
+/**
+ * @file
+ * Contains natureparif_trait..
+ */
+
+ use Drupal\Core\Routing\RouteMatchInterface;
+ use Drupal\natureparif_trait\Form\BaseTraitsSearchForm;
+ use Drupal\Core\Form\FormStateInterface;
+ use Drupal\Core\Database\Database;
+ use Symfony\Component\HttpFoundation\JsonResponse;
+ use Symfony\Component\HttpFoundation\Request;
+
+
+
+ /**
+ * Implements hook_theme().
+ */
+function natureparif_trait_theme($existing, $type, $theme, $path){
+    $content = [
+        'natureparif_trait' => [
+            'variables' => ['attributes' => NULL],
+        ],
+    ];
+    return $content;
+}
+
+ /**
+  * Implements hook_help().
+  */
+  function natureparif_trait_help($route_name, RouteMatchInterface $route_match){
+       switch ($route_name) {
+         // Main module help for the natureparif_trait module.
+         case 'help.page.natureparif_trait':
+             $output = '';
+             $output .= '<h3>' . t('About') . '</h3>';
+             $output .= '<p>' . t('This module allows the user to display the data by the criterion.') . '</p>';
+            return $output;
+          default:
+       }
+  }
+
+/**
+ * Implements hook_form_alter()
+ */
+function natureparif_trait_form_alter(&$form,FormStateInterface $form_state, $form_id){
+    
+    if($form_id == "base_traits_search_form"){
+        OneTest(); // Test
+    }  
+}
+
+/**
+ * Test
+ */
+function OneTest(){
+    $manager = \Drupal::service('base_trait.manager');
+
+    $taxonomie ="Plante"; 
+    $famille=""; //"Asteraceae";
+    $espece =""; //"Achillea millefolium";
+
+    /* $reponse = $manager->findTrait($taxonomie,$famille,$espece);
+     foreach($reponse as $unReponse){
+         debug($unReponse);
+     } */
+  
+}
+
+/**
+ * Implements hook_element_info_alter()
+ */
+function natureparif_trait_element_info_alter(array &$types){
+     if (isset($types['searchTrait'])){
+          $types['searchTrait']['#attached']['library'][]= 'natureparif_trait/natureparif-trait.script';
+     }elseif( isset($types['form'])){
+          $types['form']['#attached']['library'][]= 'natureparif_trait/natureparif-trait.script';
+     }
+}

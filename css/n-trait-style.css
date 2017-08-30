@@ -1,0 +1,26 @@
+.natureperif_info{
+   border: 1px solid #54944C;
+   padding: 5px;
+   margin-top: 15px;
+}
+select, input{
+   border:1px solid #54944C;
+   border-radius:5px;
+   width:310px;
+   box-shadow:1px 1px 2px #C0C0C0 inset;
+}
+input[type=submit], input[type=reset] {
+     box-shadow:1px 1px 1px #54944C;
+     cursor:pointer;
+     border-radius:3px;
+     margin-left: -1px;
+ }
+
+.trait-export{
+    float: right;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size:15px;
+    font-style: italic;
+    color:  #54944C;
+}
